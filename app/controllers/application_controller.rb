@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
-    #for the authentication
+    #IT IS USED FOR THE AUTHENTICATION
     #before_action :authenticate_user!
 end
