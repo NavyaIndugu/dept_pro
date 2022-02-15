@@ -1,0 +1,57 @@
+<center>
+<%= form_for @dept do |f| %>
+    <% if @dept.errors.any? %>
+    <div id="error_explanation" >
+    <h2>
+    <%= pluralize(@dept.errors.count, "error") %>
+    prohibited this dept from being saved:
+    </h2>
+    <ul>
+    <% @dept.errors.full_messages.each do |message| %>
+    <li>
+    <%= message %>
+    <% end %>
+    </ul>
+    </div>
+    <% end %>
+    <div>
+    <%= f.label :Name %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    </div>
+    <div>
+    <%= f.label :Students%>
+    <br>
+    <%= f.number_field :students%>
+    <br>
+    </div>
+    <div>
+    <%= f.label :Staff %>
+    <br>
+    <%= f.number_field :staff %>
+    <br>
+    </div>
+
+    <div>
+    <%= f.label :Books %>
+    <br>
+    <%= f.number_field :books%>
+    </div>
+    <br>
+    <div>
+    <%= f.label :main_image %>
+    <%= f.file_field :main_image %>
+    </div>
+    <div>
+    <br>
+    <%= f.submit %>
+    <br>
+    </div>
+    <% end %>
+    
+    <br>
+
+    <%= link_to "back", depts_path %>
+
+    </center>

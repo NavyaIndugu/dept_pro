@@ -1,0 +1,17 @@
+<table>
+<strong>Name:</strong>
+<%= @dept.name %>
+</p>
+<p>
+<strong>students:</strong>
+<%= @dept.students %>
+</p>
+<strong>staff:</strong>
+<%= @dept.staff %>
+</p>
+<strong>books:</strong>
+<%= @dept.books %>
+</p>
+<%= image_tag @dept.main_image, width: '100' if @dept.main_image.present? %>
+<%= link_to 'Back', :back %>
+</table>

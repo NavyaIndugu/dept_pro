@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  students: 1
+  staff: 1
+  books: 1
+
+two:
+  name: MyString
+  students: 1
+  staff: 1
+  books: 1

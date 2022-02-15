@@ -1,0 +1,37 @@
+<center >
+<h1 bgcolor='#dddddd'>DEPARTMENTS LIST</h1>
+<br>
+<table border="5" bordercolor=black bgcolor='#dddddd'>
+<thead>
+<th>NAME</th>
+<th>STUDENTS</th>
+<th>STAFF</th>
+<th>BOOKS</th>
+</thead>
+<% @depts.each do |dept| %>
+<tr>
+<td><%= dept.name %> </td>
+<td><%= dept.students %></td>
+<td><%= dept.staff %></td>
+<td><%= dept.books %></td>
+<td>
+<td><%= link_to "Edit", edit_dept_path(dept) %></td>
+<td><%= link_to "delete", dept_path(dept), method: :delete, data: { confirm: "are u sure"} %></td>
+<td><%= link_to "show", dept_path(dept) %></td>
+<td><%= link_to "download pdf", download_pdf_dept_path(dept) %></td>
+</td>
+</tr>
+<% end %>
+</table>
+ <%= link_to "Enter new department",new_dept_path %>
+<br>
+<div>
+<br>
+<%= form_with url: depts_path, method: 'get' do |f| %>
+Search:
+<%= f.text_field :q, value: params[:q],placeholder:'Search department by name' %>
+<%= f.submit "search" %>
+<% end %>
+<%= link_to "main page", depts_path %>
+</div>
+</center>

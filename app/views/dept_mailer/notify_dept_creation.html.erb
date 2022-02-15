@@ -1,0 +1,26 @@
+
+<h1>Hi</h1>
+
+<p>
+
+there is a new dept created <br>
+
+</p>
+
+<p>
+
+Name: <%= @dept.name %><br>
+
+students: <%= @dept.students %><br>
+
+staff: <%= @dept.staff %><br>
+books: <%= @dept.books %><br>
+
+CreatedAt: <%= @dept.created_at %> <br>
+
+To view the full department details: <%= link_to "click here" , dept_url(@dept) %>
+
+</p>
+
+<p> have a great day </p>
+
