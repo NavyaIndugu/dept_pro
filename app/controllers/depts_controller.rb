@@ -26,7 +26,12 @@ class DeptsController < ApplicationController
             render :new
         end
     end
-
+   def aboutus
+    # redirect_to depts_aboutus_path
+   end
+   def contact
+    # redirect_to depts_contact_path
+   end
     def edit
         @dept = Dept.find(params[:id])   
     end

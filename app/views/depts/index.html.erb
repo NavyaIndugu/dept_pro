@@ -1,7 +1,8 @@
 <center >
 <h1 bgcolor='#dddddd'>DEPARTMENTS LIST</h1>
+<%= link_to "Enter new department",new_dept_path %>
 <br>
-<table border="5" bordercolor=black bgcolor='#dddddd'>
+<table border="5" border = black bgcolor='#dddddd'>
 <thead>
 <th>NAME</th>
 <th>STUDENTS</th>
@@ -23,15 +24,21 @@
 </tr>
 <% end %>
 </table>
- <%= link_to "Enter new department",new_dept_path %>
 <br>
 <div>
-<br>
 <%= form_with url: depts_path, method: 'get' do |f| %>
 Search:
 <%= f.text_field :q, value: params[:q],placeholder:'Search department by name' %>
 <%= f.submit "search" %>
 <% end %>
 <%= link_to "main page", depts_path %>
+<br>
+<%= nav_bar static: :bottom, brand: "Hogwarts University" do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+        <%= menu_item "About Us", depts_aboutus_path %>
+        <%= menu_item "Contact", depts_contact_path %>
+    <% end %>
+    <% end %>
 </div>
 </center>
