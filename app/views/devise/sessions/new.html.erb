@@ -1,6 +1,6 @@
 <center>
 <h2>Log in</h2>
-
+<div style="width:400px; margin:0px auto; padding:20px; text-align:center; background:lavender; color:black;" >
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %>
@@ -23,6 +23,6 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+</div>
 <%= render "devise/shared/links" %>
 </center>
