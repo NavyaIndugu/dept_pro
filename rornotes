@@ -1,0 +1,188 @@
+video 60
+structure of a rails application:
+in app we have a assests folder in that we will store images and stylesheets, images that are used in the layout those are only stored in the assests.
+in channel folder we have the real time communication.
+controllers folder all the controllers are in that folder
+helpers folder
+javascript folder:in this folder one link that was mapping to the application.html.rb file.
+models folder
+views folder:whatever views are created in the views folder all the files are shown in application.html.erb in the field of "yield" in the application .html.erb file.
+next we have bin folder
+that means binary folder
+config folder:we can make custom configurations 
+we are using the gem file that will impact the gem.lock file also but we didn't directly work on gem.lock file
+readme.md is a document file where we have all the instructions and this is the file that will display in the code repository usually it contains of instructions of how to use app and gems 
+hidden files are started with "dot(.)"these are not visible by default.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+video 62
+version control with git
+version control is something like we started a editing of an existing application now it causes an error in that editing now we can't come back to the previous code in that case version control comes to the picture.
+simply version control is like tracking the files and folders in application when we start tracking is when the initial state of the application will be usually this is done as soon as application is created.
+for creation of github account:
+git config --global user.name "Navya Indugu"
+git config --global user.email nindugu@osius.com
+--------------------------------------------------------------------------------------------------------------------------------------------------
+for listing the files in github:
+git config --list
+--------------------------------------------------------------------------------------------------------------------------------------------------
+then a create a new project and try to add the files to the github account
+by using the command
+git add -A
+before adding the project make sure that you have to be in that project folder
+now type git status
+it will give all the files that are added to the github noww
+then open the project and open the gitignore
+gitignore means if you don't want to track any files then those files will write the in the ".gitignore"  file.
+git commit -m "inital root route"- for the commit
+after that enter git status
+--------------------------------------------------------------------------------------------------------------------------------------------------
+rails generate scaffold Article title:string description:text
+this command for the scaffold of model to the database and it will generate the fields also
+we have created the migration file and now we have to run the migration file by using the 
+rails db:migrate
+bundle exec rake webpacker:compile for the manifest error
+before that we have to do the "bundle update" for the project then execute the above command
+--------------------------------------------------------------------------------------------------------------------------------------------------
+RAILS NAMING CONVENTIONS ARTICLES RESOURCE
+Model name:article
+article model file name:article.rb
+article model class name:article
+table name:articles
+---------------------------------------------------------------------------------------------------------------------------------------------------
+REINSTALLATION OF MYSQL:
+sudo apt-get remove --purge mysql*
+sudo apt-get purge mysql*
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo apt-get remove dbconfig-mysql
+sudo apt-get dist-upgrade
+sudo apt-get install mysql-server
+--------------------------------------------------------------------------------------------------------------------------------------------------
+rails new projectname -d mysql for creating the project with mysql database
+to get into mysql command is sudo mysql
+if this doesn't work type "sql -u root -p"
+for every project creation we have to do the drop the mysql for previous project and create new one for the current project.for that type the following commands
+DROP USER 'root'@'localhost';
+CREATE USER 'root'@'localhost' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;
+then exit from mysql with command "exit".
+for creation of database:rails db:create, it will generates the development and testing databases.
+for the migration the command is rails db:migrate
+then serve rails s
+--------------------------------------------------------------------------------------------------------------------------------------------
+another solution for manifest error:
+we have to change the version first
+nvm install 14.15.0
+bundle exec rake webpacker:compile
+rails webpacker:install
+bundle update
+rails s
+-----------------------------------------------------------------------------------------------------------------------
+how to open settings in ubuntu when it is not opened.
+gnome-control-center run this  command if it is work then it will automatically open the settings
+if the command not found come then you have to install the packge then type 
+sudo apt install gnome-control-center
+after installation of that we have to type the "gnome-control-center" it will open the settings automatically.
+-----------------------------------------------------------------------------------------------------------------------
+how to configure bluetooth in your computer?
+sudo apt-get install bluetooth bluez bluez-tools rfkill
+sudo rfkill list
+sudo rfkill unblock bluetooth
+sudo service bluetooth start
+sudo apt-get install blueman
+after installation of that we have to open the bluetooth in menu bar.
+-----------------------------------------------------------------------------------------------------------------------
+class rails 
+date:5/1/22
+rvm have more online resources than rebnv so we have to go with rvm
+by using the command "rvm list" we can see  the all the available versions of ruby in our computer.
+before creating any application we have to choose the rvm version in our computer based on the client requirement.
+then we have to see the rails are installed or not.
+whenever you want to see the which version has been installed then we have to go the "gemfile" then we can see that which version has been installed in our project.
+for some projects we can skip the bundle install for the project creation by using "rails new app --skip routes"
+if you want to create a application without any db we can use the command "rails new app -o"this command will skip the active record and db part
+if you create only api application then we can use the "rails new app --api"
+if you want a run a rails application on specfic port then we have to use the command rails s -p 3001
+by default rails application  will run on development environment 
+we can run at all types of environments..
+for creation of model : rails g model <model name>
+we can create the model by giving the fields in it also
+rake db:migrate status for seeing the status of the migration
+if you see the status "up" that means it was already migrated
+if you see the status "down" that means it was migrated yet.
+if you want to see the all available tasks "rake -T"
+--------------------------------------------------------------------------------------------------------------------------
+ERROR SOLUTION: If you get this type of error
+/home/nindugu/.rbenv/versions/3.0.2/lib/ruby/3.0.0/rubygems.rb:281:in `find_spec_for_exe': can't find gem railties (>= 0.a) with executable rails (Gem::GemNotFoundException)
+	from /home/nindugu/.rbenv/versions/3.0.2/lib/ruby/3.0.0/rubygems.rb:300:in `activate_bin_path'
+	from /home/nindugu/.rbenv/versions/3.0.2/bin/rails:23:in `<main>'
+solution is we have to reinstall the gems by using the command "gem install rails" 
+-----------------------------------------------------------------------
+i didn't see the yesterday and today's recording for the models and contollers
+---------------------------------------------------------------------------------------------------
+if the template has the extension of .jbuilder that means it has to accept the json requests.
+if you want to add the haml files then you have to add the gem 'haml-rails for the project file
+to convert all erb files into haml, run below commad
+rake haml:erb2haml
+there is one more template that is "slim-rails"
+we have to add the 
+---------------------------------------------------------------------
+Device Authentication set  up :
+when a user enter user name and password how to validate the correct user
+in rails we have one gem called 'devise'
+we have to add that gem for the authentication to our project.
+whenver you modify the gem file then we have to run the command "bundle install"
+after bundle install we have run the command rails generate devise:install
+now check the config file and intialization folder.
+open the development.rb and add the line that appeared in installation
+for devise model we have the command "rails generate devise user"
+--------------------------------------------------------------------------------------------------------------
+gem uninstall rails
+gem uninstall railities
+----------------------------------------------------------------------------------------------------------------------------
+i have to see the scaffolding and validations video...................................
+-----------------------------------------------------------------------------------------------------------------------------------------
+"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"
+personal token
+new access token------------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
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
